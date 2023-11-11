@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Coral Racer - Level Editor</title>
+    <style>
+      .hp
+      {
+        position: relative;
+        top: -6px;
+        font-style: normal;
+        font-size: 30px;
+      }
+      h1
+      {
+        margin: 10px;
+        font-family: serif;
+        font-style: italic;
+        font-size: 40px;
+        text-transform: uppercase;
+        font-weight: 100;
+        margin: 10px;
+        text-align: center;
+      }
+      html, body
+      {
+        margin: 0;
+        padding: 0;
+        background-color: #000;
+        color: #fff;
+        width: 100%;
+        min-width: 800px;
+        height: 100%;
+        overflow: hidden;
+        text-align: center;
+        font-family: monospace;
+      }
+      #btn_bar
+      {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        padding: 10px;
+        display: none;
+        z-index: 1;
+      }
+      button
+      {
+        border-radius: 7px;
+        border: 1px solid #0f0;
+        padding: 5px;
+        cursor: pointer;
+        width: 36px;
+        height: 36px;
+        background-color: #666;
+      }
+      button img
+      {
+        padding: 0;
+        margin: 0;
+        width: 24px;
+        height: 24px;
+        xbackground-color: #666;
+      }
+      button:disabled
+      {
+        opacity: 0.25;
+      }
+      .selected
+      {
+        background-color: #0f0;
+      }
+    </style>
+    <script type="module">
+      import "./lib/game_objs/Game_Obj_Editor.js";
+      import "./lib/game_objs/Game_Obj_List.js";
+
+      window.onload = Main;
+      window.onresize = OnResize;
+      let shapes_elem, editor_elem, remote_ctrl;
+
+      function Main()
+      {
+        shapes_elem = document.getElementById("shapes");
+        shapes_elem.on_change_fn = Shapes_OnChange;
+        
+        editor_elem = document.getElementById("shape_editor");
+        editor_elem.on_change_fn = Editor_OnChange;
+        editor_elem.Set_Shapes(shapes_elem.shapes);
+
+        shapes_elem.ctx = editor_elem.ctx;
+        
+        OnResize();
+      }
+
+      function OnResize()
+      {
+        let size;
+        let width = window.innerWidth;
+        let height = window.innerHeight;
+        if (width<height)
+        {
+          size = width;
+        }
+        else if (height<width)
+        {
+          size = height;
+        }
+
+        editor_elem.Resize(width, height);      
+      }
+
+      // fires when a change is made on the shape list
+      function Shapes_OnChange(shapes)
+      {
+        //console.log("Shapes_OnChange()");
+        shapes_elem.Save();
+        editor_elem.Set_Shapes(shapes);
+      }
+
+      // fires when a change is made via the canvas editor
+      function Editor_OnChange(plant)
+      {
+        //console.log("Editor_OnChange()");
+        shapes_elem.Save();
+        shapes_elem.requestUpdate();
+      }
+    </script>
+  </head>
+
+  <body>
+    <game-obj-editor id="shape_editor"></game-obj-editor>
+    <game-obj-list id="shapes"></game-obj-list>
+  </body>
+</html>

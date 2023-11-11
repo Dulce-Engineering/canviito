@@ -1,0 +1,246 @@
+[
+  {
+    "class_name": "Shape_MoveTo",
+    "name": "moveTo",
+    "selected": false,
+    "cmd": null,
+    "btns": [
+      {
+        "hover": false,
+        "id": "pt",
+        "x": 43.296290644892935,
+        "y": -77.92591688368057
+      }
+    ],
+    "prev_shape": "dynamic",
+    "pt": "dynamic",
+    "id": 1594807909905
+  },
+  {
+    "class_name": "Shape_BezierCurveTo",
+    "name": "bezierCurveTo",
+    "selected": false,
+    "cmd": null,
+    "btns": [
+      {
+        "hover": false,
+        "id": "pt",
+        "x": 34.99999999999994,
+        "y": -37.33333333333337
+      },
+      {
+        "hover": false,
+        "id": "cp1",
+        "x": 70.33333333333331,
+        "y": -112
+      },
+      {
+        "hover": false,
+        "id": "cp2",
+        "x": 92.33333333333331,
+        "y": -45.33333333333337
+      }
+    ],
+    "prev_shape": "dynamic",
+    "pt": "dynamic",
+    "cp1": "dynamic",
+    "cp2": "dynamic",
+    "id": 1594807944338
+  },
+  {
+    "class_name": "Shape_BezierCurveTo",
+    "name": "bezierCurveTo",
+    "selected": false,
+    "cmd": null,
+    "btns": [
+      {
+        "hover": false,
+        "id": "pt",
+        "x": 30.333333333333314,
+        "y": -6.666666666666686
+      },
+      {
+        "hover": false,
+        "id": "cp1",
+        "x": 43.66666666666663,
+        "y": -31.33333333333337
+      },
+      {
+        "hover": false,
+        "id": "cp2",
+        "x": 49.66666666666663,
+        "y": -16.666666666666686
+      }
+    ],
+    "prev_shape": "dynamic",
+    "pt": "dynamic",
+    "cp1": "dynamic",
+    "cp2": "dynamic",
+    "id": 1594807965794
+  },
+  {
+    "class_name": "Shape_BezierCurveTo",
+    "name": "bezierCurveTo",
+    "selected": false,
+    "cmd": null,
+    "btns": [
+      {
+        "hover": false,
+        "id": "pt",
+        "x": -15.000000000000057,
+        "y": 16.66666666666663
+      },
+      {
+        "hover": false,
+        "id": "cp1",
+        "x": 148.99998982747394,
+        "y": -37.33333333333337
+      },
+      {
+        "hover": false,
+        "id": "cp2",
+        "x": 30.333323160807254,
+        "y": 124.66666666666663
+      }
+    ],
+    "prev_shape": "dynamic",
+    "pt": "dynamic",
+    "cp1": "dynamic",
+    "cp2": "dynamic",
+    "id": 1594808289250
+  },
+  {
+    "class_name": "Shape_BezierCurveTo",
+    "name": "bezierCurveTo",
+    "selected": false,
+    "cmd": null,
+    "btns": [
+      {
+        "hover": false,
+        "id": "pt",
+        "x": -39.00000000000006,
+        "y": -16
+      },
+      {
+        "hover": false,
+        "id": "cp1",
+        "x": -61.666666666666686,
+        "y": 76
+      },
+      {
+        "hover": false,
+        "id": "cp2",
+        "x": -88.33333333333337,
+        "y": -28
+      }
+    ],
+    "prev_shape": "dynamic",
+    "pt": "dynamic",
+    "cp1": "dynamic",
+    "cp2": "dynamic",
+    "id": 1594808301009
+  },
+  {
+    "class_name": "Shape_BezierCurveTo",
+    "name": "bezierCurveTo",
+    "selected": false,
+    "cmd": null,
+    "btns": [
+      {
+        "hover": false,
+        "id": "pt",
+        "x": -44.33333333333337,
+        "y": -50
+      },
+      {
+        "hover": false,
+        "id": "cp1",
+        "x": -85.66666666666669,
+        "y": -28
+      },
+      {
+        "hover": false,
+        "id": "cp2",
+        "x": -73.00000000000006,
+        "y": -61.33333333333337
+      }
+    ],
+    "prev_shape": "dynamic",
+    "pt": "dynamic",
+    "cp1": "dynamic",
+    "cp2": "dynamic",
+    "id": 1594808316474
+  },
+  {
+    "class_name": "Shape_BezierCurveTo",
+    "name": "bezierCurveTo",
+    "selected": false,
+    "cmd": null,
+    "btns": [
+      {
+        "hover": false,
+        "id": "pt",
+        "x": -14.333333333333371,
+        "y": -58
+      },
+      {
+        "hover": false,
+        "id": "cp1",
+        "x": -55.666666666666686,
+        "y": -64.66666666666669
+      },
+      {
+        "hover": false,
+        "id": "cp2",
+        "x": -47.00000000000006,
+        "y": -93.33333333333337
+      }
+    ],
+    "prev_shape": "dynamic",
+    "pt": "dynamic",
+    "cp1": "dynamic",
+    "cp2": "dynamic",
+    "id": 1594808333536
+  },
+  {
+    "class_name": "Shape_BezierCurveTo",
+    "name": "bezierCurveTo",
+    "selected": true,
+    "cmd": null,
+    "btns": [
+      {
+        "hover": false,
+        "id": "pt",
+        "x": 29.66666666666663,
+        "y": -56.666666666666686
+      },
+      {
+        "hover": false,
+        "id": "cp1",
+        "x": -25.14815379955151,
+        "y": -84.44443540219908
+      },
+      {
+        "hover": false,
+        "id": "cp2",
+        "x": 56.62962397822625,
+        "y": -110.22221317997686
+      }
+    ],
+    "prev_shape": "dynamic",
+    "pt": "dynamic",
+    "cp1": "dynamic",
+    "cp2": "dynamic",
+    "id": 1594808474871
+  },
+  {
+    "class_name": "Shape_ClosePath",
+    "name": "closePath",
+    "selected": false,
+    "cmd": null,
+    "btns": [],
+    "prev_shape": "dynamic",
+    "pt": "dynamic",
+    "id": 1594808886922
+  }
+]
