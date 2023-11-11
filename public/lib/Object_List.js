@@ -657,17 +657,6 @@ class Object_List extends LitElement
         text-align: right;
         padding: 10px;
       }
-
-      #dlg
-      {
-        position: absolute;
-        z-index: 2;
-        background-color: #000;
-        bottom: 0px;
-        right: 0px;
-        width: 100%;
-        height: 40%;
-      }
     `;
   }
 

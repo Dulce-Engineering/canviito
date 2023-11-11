@@ -1,0 +1,92 @@
+shape-dlg dialog
+{
+  background-color: #111;
+  color: #fff;
+}
+
+shape-dlg main
+{
+  grid-template-columns: 1fr 2fr;
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+  overflow: auto;
+  align-content: start;
+  display: grid;
+  margin: 20px 0;
+}
+shape-dlg input
+{
+  border: 0;
+  background-color: inherit;
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid #fff;
+  color: #fff;
+  font-family: monospace;
+  font-size: 16px;
+  width: 200px;
+}
+shape-dlg input:focus-visible
+{
+  outline: none;
+}
+shape-dlg select
+{
+  border: 0;
+  background-color: inherit;
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid #fff;
+  font-family: monospace;
+  font-size: 16px;
+}
+shape-dlg label
+{
+  margin-right: 10px;
+  padding: 0;
+  margin: 0;
+  font-weight: 100;
+  font-size: 16px;
+  text-align: right;
+}
+shape-dlg span
+{
+  text-align: left;
+}
+
+shape-dlg footer
+{
+  text-align: right;
+}
+shape-dlg button
+{
+  border-radius: 7px;
+  border: 1px solid #0f0;
+  padding: 5px;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  background-color: #666;
+  display: inline-block;
+  box-sizing: border-box;
+}
+shape-dlg button img
+{
+  padding: 0;
+  margin: 0;
+  width: 24px;
+  height: 24px;
+}
+shape-dlg button:disabled
+{
+  opacity: 0.25;
+}
+
+shape-dlg header
+{
+  padding: 10px 20px 5px 20px;
+  text-align: center;
+  font-weight: 100;
+  font-size: 20px;
+  border-bottom: 1px solid #fff;
+}

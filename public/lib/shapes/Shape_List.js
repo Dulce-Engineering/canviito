@@ -3,11 +3,10 @@ import {unsafeHTML} from '../lit-html/directives/unsafe-html.js';
 import "../code_gen/Canvas_Code_Gen.js";
 import "../code_gen/Path_Code_Gen.js";
 import "../code_gen/Android_Shape_Code_Gen.js";
-import "./Shape_Dialog.js";
+import "./Shape_Dlg.js";
 import * as pl from "../Coral_Racer.js";
 
-class Shape_List 
-extends LitElement
+class Shape_List extends LitElement
 {
   constructor()
   {
@@ -23,7 +22,8 @@ extends LitElement
   {
     this.Load();
     this.Set_Code_Gen_Type("android_code");
-    this.shadowRoot.getElementById("dlg").onclick_edit_ok = this.OnClick_Edit_Ok;
+    this.shadowRoot.getElementById("dlg")
+      .addEventListener("edit", this.OnClick_Edit_Ok);
   }
   
   Set_Code_Gen_Type(code_gen_type)
@@ -393,13 +393,13 @@ extends LitElement
     const i = this.Get_Shape_Idx(id);
     const shape = this.shapes[i];
 
-    //dlg.this_class = this.this_class;
-    dlg.Show();
-    dlg.Edit(shape);
+    dlg.Show(shape);
   }
 
-  OnClick_Edit_Ok(shape)
+  OnClick_Edit_Ok()
   {
+    const dlg = this.shadowRoot.getElementById("dlg");
+    const shape = dlg.value;
     const i = this.Get_Shape_Idx(shape.id);
     this.shapes[i] = shape;
     this.requestUpdate();
@@ -678,23 +678,13 @@ extends LitElement
         text-align: right;
         padding: 10px;
       }
-
-      #dlg
-      {
-        position: absolute;
-        z-index: 2;
-        background-color: #000;
-        bottom: 0px;
-        right: 0px;
-        width: 100%;
-        height: 40%;
-      }
     `;
   }
 
   render()
   {
     return html`
+      <link type="text/css" rel="stylesheet" href="./style/Shape_Dlg.css" />
       <div id="shapes">
 
         <div id="btn_bar">

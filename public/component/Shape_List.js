@@ -1,13 +1,8 @@
-import {LitElement, html, css} from "../lit-element/lit-element.js";
-import {unsafeHTML} from '../lit-html/directives/unsafe-html.js';
-import "../code_gen/Canvas_Code_Gen.js";
-import "../code_gen/Path_Code_Gen.js";
-import "../code_gen/Android_Shape_Code_Gen.js";
-import "./Shape_Dialog.js";
-import * as pl from "../Coral_Racer.js";
 
-class Shape_List extends LitElement
+class Shape_List extends HTMLElement
 {
+  static tname = "shape-list";
+
   constructor()
   {
     super();
@@ -18,7 +13,7 @@ class Shape_List extends LitElement
     this.code_gen_type = null;
   }
   
-  firstUpdated(changedProperties)
+  connected()
   {
     this.Load();
     this.Set_Code_Gen_Type("android_code");
@@ -677,21 +672,10 @@ class Shape_List extends LitElement
         text-align: right;
         padding: 10px;
       }
-
-      #dlg
-      {
-        position: absolute;
-        z-index: 2;
-        background-color: #000;
-        bottom: 0px;
-        right: 0px;
-        width: 100%;
-        height: 40%;
-      }
     `;
   }
 
-  render()
+  Render()
   {
     return html`
       <div id="shapes">
@@ -813,4 +797,6 @@ class Shape_List extends LitElement
   }
 }
 
-customElements.define('shape-list', Shape_List);
+Utils.Register_Element(Shape_List);
+
+export default Shape_List;
