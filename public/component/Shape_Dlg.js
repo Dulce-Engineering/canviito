@@ -1,5 +1,4 @@
-//import * as pl from "../Coral_Racer.js";
-import Utils from "../Utils.js";
+import Utils from "../lib/Utils.js";
 
 class Shape_Dlg extends HTMLElement 
 {

@@ -1,22 +1,30 @@
-import {LitElement, html, css} from "../lit-element/lit-element.js";
-import * as pl from "../Coral_Racer.js";
-import { Bezier } from "../bezierjs/bezier.js";
+import * as pl from "../lib/Coral_Racer.js";
+import { Bezier } from "../lib/bezierjs/bezier.js";
+import Utils from "../lib/Utils.js";
 
-class Android_Shape_Code_Gen extends LitElement 
+class Android_Code extends HTMLElement 
 {
+  static tname = "android-code";
+
   constructor()
   {
     super();
+    Utils.Bind(this, "On_");
+  }
+
+  connectedCallback()
+  {
+    this.render();
   }
 
   Hide()
   {
-    this.style.display = "none";
+    this.dlg.close();
   }
 
   Show()
   {
-    this.style.display = "block";
+    this.dlg.showModal();
   }
 
   Round(val)
@@ -62,7 +70,7 @@ class Android_Shape_Code_Gen extends LitElement
         "\t}\n" +
       "}\n";
 
-    this.shadowRoot.getElementById("txt_area").value = code;
+    this.querySelector("#txt_area").value = code;
   }
 
   Gen_Segments(segments)
@@ -255,88 +263,31 @@ class Android_Shape_Code_Gen extends LitElement
     return res;
   }
 
-  OnClick_Close()
+  On_Click_Close()
   {
     this.Hide();
   }
 
-  static get styles()
-  {
-    return css`
-      :host
-      {
-        display: none;
-        margin-top: 20px;
-      }
-      #title
-      {
-        text-align: left;
-        display: inline-block;
-        width: 48%;
-        font-size: 35px;
-      }
-      #btn_bar
-      {
-        display: inline-block;
-        width: 48%;
-        text-align: right;
-      }
-
-      button
-      {
-        border-radius: 7px;
-        border: 1px solid #0f0;
-        padding: 5px;
-        cursor: pointer;
-        width: 36px;
-        height: 36px;
-        background-color: #666;
-        display: inline-block;
-        box-sizing: border-box;
-      }
-      button img
-      {
-        padding: 0;
-        margin: 0;
-        width: 24px;
-        height: 24px;
-      }
-      button:disabled
-      {
-        opacity: 0.25;
-      }
-
-      textarea
-      {
-        background-color: #222;
-        border: 1px solid #fff;
-        color: #fff;
-        padding: 5px;
-        font-family: monospace;
-        font-size: 11px;
-        tab-size: 2;
-        width: 95%;
-        height: 70%;
-      }
-      #hdr
-      {
-        padding-bottom: 10px;
-      }
-    `;
-  }
-
   render()
   {
-    return html`
-      <div id="hdr">
-        <div id="title">Android Code</div>
-        <div id="btn_bar">
-          <button @click="${this.OnClick_Close}"><img src="images/close.svg"></button>
+    const html = `
+      <dialog id="dlg">
+        <div id="hdr">
+          <div id="title">Android Code</div>
+          <div id="btn_bar">
+            <button id="close_btn"><img src="images/close.svg"></button>
+          </div>
         </div>
-      </div>
-      <textarea id="txt_area"></textarea>
+        <textarea id="txt_area"></textarea>
+      </dialog>
     `;
+    this.innerHTML = html;
+    Utils.Set_Id_Shortcuts(this, this);
+
+    this.close_btn.addEventListener("click", this.On_Click_Close);
   }
 }
 
-customElements.define('android-shape-code-gen', Android_Shape_Code_Gen);
+Utils.Register_Element(Android_Code);
+
+export default Android_Code;

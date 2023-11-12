@@ -1,0 +1,59 @@
+android-code dialog
+{
+  xmargin-top: 20px;
+  xwidth: 90%;
+}
+android-code #title
+{
+  text-align: left;
+  display: inline-block;
+  width: 48%;
+  font-size: 35px;
+}
+android-code #btn_bar
+{
+  display: inline-block;
+  width: 48%;
+  text-align: right;
+}
+
+android-code button
+{
+  border-radius: 7px;
+  border: 1px solid #0f0;
+  padding: 5px;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  background-color: #666;
+  display: inline-block;
+  box-sizing: border-box;
+}
+android-code button img
+{
+  padding: 0;
+  margin: 0;
+  width: 24px;
+  height: 24px;
+}
+android-code button:disabled
+{
+  opacity: 0.25;
+}
+
+android-code textarea
+{
+  background-color: #222;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 5px;
+  font-family: monospace;
+  font-size: 11px;
+  tab-size: 2;
+  width: 95%;
+  height: 70%;
+}
+android-code #hdr
+{
+  padding-bottom: 10px;
+}

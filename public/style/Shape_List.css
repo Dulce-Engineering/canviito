@@ -1,0 +1,111 @@
+table
+{
+  width: 100%;
+  border-collapse: collapse;
+  border-left: 10px solid #000;
+  border-right: 10px solid #000;
+}
+thead
+{
+  box-shadow: 
+    rgb(32,32,32) 0px 1px 0px 0px;
+}
+tbody:before
+{
+  display: block;
+  content: " ";
+  height: 10px;
+}
+tbody tr:hover
+{
+  background-color: #111;
+}
+tbody:after
+{
+  display: block;
+  content: " ";
+  height: 20px;
+}
+th
+{
+  font-weight: 100;
+  font-size: 20px;
+  padding: 0px 10px;
+}
+td
+{
+  padding: 4px 12px;
+  font-size: 13px;
+}
+
+.button
+{
+  border-radius: 7px;
+  border: 1px solid #0f0;
+  padding: 5px;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  background-color: #666;
+  display: inline-block;
+  box-sizing: border-box;
+}
+.button:disabled
+{
+  opacity: 0.25;
+}
+.button img
+{
+  padding: 0;
+  margin: 0;
+  width: 24px;
+  height: 24px;
+}
+.selected
+{
+  background-color: #0f0;
+}
+
+#shapes
+{
+  display: block;
+  position: absolute;
+  z-index: 2;
+  background-color: #000;
+  bottom: 0px;
+  right: 0px;
+  width: 100%;
+  height: 56px;
+}
+#summary
+{
+  display: inline-block;
+  position: absolute;
+  z-index: 2;
+  right: 0px;
+  top: 46px;
+  padding: 5px 10px 10px 10px;
+  font-size: 12px;
+}
+.code_gen
+{
+  xdisplay: block;
+  position: absolute;
+  z-index: 2;
+  background-color: #000;
+  bottom: 0px;
+  right: 0px;
+  width: 100%;
+  height: 40%;
+  xborder: 10px solid #fffff9;
+}
+
+#table
+{
+  overflow: auto;
+}
+#btn_bar
+{
+  text-align: right;
+  padding: 10px;
+}

@@ -6,6 +6,10 @@
     <title>Coral Racer - Shape Editor</title>
 
     <link type="text/css" rel="stylesheet" href="./style/Shape_Dlg.css" />
+    <link type="text/css" rel="stylesheet" href="./style/Shape_List.css" />
+    <link type="text/css" rel="stylesheet" href="./style/Android_Code.css" />
+    <link type="text/css" rel="stylesheet" href="./style/Canvas_Code.css" />
+    <link type="text/css" rel="stylesheet" href="./style/Path_Code.css" />
     <style>
       .hp
       {
@@ -44,7 +48,6 @@
         top: 0px;
         right: 0px;
         padding: 10px;
-        display: none;
         z-index: 1;
       }
       button
@@ -77,7 +80,7 @@
     
     <script type="module">
       import "./lib/shapes/Shape_Editor.js";
-      import "./lib/shapes/Shape_List.js";
+      import "./component/Shape_List.js";
 
       window.onload = Main;
       window.onresize = OnResize;
