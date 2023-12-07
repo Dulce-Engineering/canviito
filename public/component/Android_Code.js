@@ -70,7 +70,7 @@ class Android_Code extends HTMLElement
         "\t}\n" +
       "}\n";
 
-    this.querySelector("#txt_area").value = code;
+    this.txt_area.value = code;
   }
 
   Gen_Segments(segments)
@@ -270,19 +270,16 @@ class Android_Code extends HTMLElement
 
   render()
   {
-    const html = `
-      <dialog id="dlg">
-        <div id="hdr">
-          <div id="title">Android Code</div>
-          <div id="btn_bar">
-            <button id="close_btn"><img src="images/close.svg"></button>
-          </div>
-        </div>
-        <textarea id="txt_area"></textarea>
+    this.innerHTML = `
+      <dialog cid="dlg">
+        <header>
+          <h1>Android Code</h1>
+          <img cid="close_btn" src="images/close.svg">
+        </header>
+        <textarea cid="txt_area"></textarea>
       </dialog>
     `;
-    this.innerHTML = html;
-    Utils.Set_Id_Shortcuts(this, this);
+    Utils.Set_Id_Shortcuts(this, this, "cid");
 
     this.close_btn.addEventListener("click", this.On_Click_Close);
   }

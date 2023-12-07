@@ -1,23 +1,24 @@
 android-code dialog
 {
-  xmargin-top: 20px;
-  xwidth: 90%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  background-color: #888;
 }
-android-code #title
+android-code header
 {
-  text-align: left;
-  display: inline-block;
-  width: 48%;
+  display: flex;
+  justify-content: space-between;
+}
+android-code header h1
+{
+  color: #000;
   font-size: 35px;
-}
-android-code #btn_bar
-{
-  display: inline-block;
-  width: 48%;
-  text-align: right;
+  padding: 0 0 10px 0;
+  margin: 0;
 }
 
-android-code button
+android-code header img
 {
   border-radius: 7px;
   border: 1px solid #0f0;
@@ -28,17 +29,7 @@ android-code button
   background-color: #666;
   display: inline-block;
   box-sizing: border-box;
-}
-android-code button img
-{
-  padding: 0;
   margin: 0;
-  width: 24px;
-  height: 24px;
-}
-android-code button:disabled
-{
-  opacity: 0.25;
 }
 
 android-code textarea
@@ -50,10 +41,5 @@ android-code textarea
   font-family: monospace;
   font-size: 11px;
   tab-size: 2;
-  width: 95%;
-  height: 70%;
-}
-android-code #hdr
-{
-  padding-bottom: 10px;
+  height: 70vh;
 }

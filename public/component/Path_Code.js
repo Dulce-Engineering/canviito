@@ -62,7 +62,7 @@ class Path_Code extends HTMLElement
       "\t</body>\n" +
       "</html>\n";
 
-    this.querySelector("#txt_area").value = code;
+    this.txt_area.value = code;
   }
 
   Gen_Cmds(shapes)
@@ -84,7 +84,7 @@ class Path_Code extends HTMLElement
 
   On_Click_Run()
   {
-    const js = this.querySelector("#txt_area").value;
+    const js = this.txt_area.value;
     const page = window.open("", "plantinator", "width=500,height=500");
     page.document.open();
     page.document.write(js);
@@ -98,20 +98,17 @@ class Path_Code extends HTMLElement
 
   render()
   {
-    const html = `
-      <dialog id="dlg">
-        <div id="hdr">
-          <div id="title">Path Code</div>
-          <div id="btn_bar">
-            <button id="run_btn"><img src="images/play-outline.svg"></button>
-            <button id="close_btn"><img src="images/close.svg"></button>
-          </div>
-        </div>
-        <textarea id="txt_area"></textarea>
+    this.innerHTML = `
+      <dialog cid="dlg">
+        <header>
+          <h1>Path Code</h1>
+          <img cid="run_btn" src="images/play-outline.svg">
+          <img cid="close_btn" src="images/close.svg">
+        </header>
+        <textarea cid="txt_area"></textarea>
       </dialog>
     `;
-    this.innerHTML = html;
-    Utils.Set_Id_Shortcuts(this, this);
+    Utils.Set_Id_Shortcuts(this, this, "cid");
 
     this.run_btn.addEventListener("click", this.On_Click_Run);
     this.close_btn.addEventListener("click", this.On_Click_Close);

@@ -87,18 +87,6 @@ td
   padding: 5px 10px 10px 10px;
   font-size: 12px;
 }
-.code_gen
-{
-  xdisplay: block;
-  position: absolute;
-  z-index: 2;
-  background-color: #000;
-  bottom: 0px;
-  right: 0px;
-  width: 100%;
-  height: 40%;
-  xborder: 10px solid #fffff9;
-}
 
 #table
 {
