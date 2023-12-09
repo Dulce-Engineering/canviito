@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes');
+@import url('https://fonts.googleapis.com/css2?family=Parisienne');
+@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script');
+@import url('https://fonts.googleapis.com/css2?family=Rouge+Script');
+
+@import url('https://fonts.googleapis.com/css2?family=Dosis');
+@import url('https://fonts.googleapis.com/css2?family=Manrope');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand');
+@import url('https://fonts.googleapis.com/css2?family=Raleway');
+
+html
+{
+  --skin: #e9b9aa;
+  --red: #d98481;
+  --blue: #7892b5;
+  --aqua: #8cb9c0;
+  --green: #91b5a9;
+  --yellow: #edca7f;
+  --black: #000;
+}
+
+body
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  align-items: center;
+
+  xfont-family: 'Dosis', sans-serif;
+  xfont-family: 'Manrope', sans-serif;
+  xfont-family: 'Montserrat', sans-serif;
+  xfont-family: 'Raleway', sans-serif;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 16px;
+  color: var(--black);
+
+  background: 
+    linear-gradient(45deg, var(--blue), #fff0, var(--red)), 
+    linear-gradient(-45deg, var(--green), #fff0, var(--yellow))/*,
+    linear-gradient(336deg, var(--blue), #fff0 30%)*/;
+}
+
+h1
+{
+  xfont-family: 'Dancing Script', cursive;
+  xfont-family: 'Great Vibes', cursive;
+  font-family: 'Parisienne', cursive;
+  xfont-family: 'Pinyon Script', cursive;
+  xfont-family: 'Rouge Script', cursive;
+  font-size: 10rem;
+  text-align: center;
+  margin: 0;
+}
+
+h2
+{
+  font-size: 1rem;
+  margin: 0;
+  color: #666;
+}
+
+button
+{
+  display: inline-block;
+  border: none;
+  border-radius: 7px;
+  padding: 8px;
+  cursor: pointer;
+  box-shadow: 0 3px 5px #888;
+  background-color: #fff;
+
+  color: #888;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 800;
+}
+button:active
+{
+  box-shadow: 0 1px 3px #888;
+}
+a
+{
+  color: #888;
+  text-decoration: none;
+}

@@ -1,9 +1,12 @@
 android-code dialog
 {
   width: 80%;
+  background-color: #888;
+}
+android-code .body
+{
   display: flex;
   flex-direction: column;
-  background-color: #888;
 }
 android-code header
 {

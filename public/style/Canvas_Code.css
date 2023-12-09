@@ -1,15 +1,13 @@
 
-canvas-code button:disabled
-{
-  opacity: 0.25;
-}
-
 canvas-code dialog
 {
   width: 80%;
+  background-color: #888;
+}
+canvas-code .body
+{
   display: flex;
   flex-direction: column;
-  background-color: #888;
 }
 canvas-code header
 {

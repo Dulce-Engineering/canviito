@@ -2,7 +2,7 @@ import "./Canvas_Code.js";
 import "./Path_Code.js";
 import "./Android_Code.js";
 import "./Shape_Dlg.js";
-import * as pl from "../lib/Coral_Racer.js";
+import * as pl from "../lib/Shapes.js";
 import Utils from "../lib/Utils.js";
 
 class Shape_List extends HTMLElement
@@ -25,17 +25,16 @@ class Shape_List extends HTMLElement
 
     this.Load();
     this.Set_Code_Gen_Type("android_code");
-    this.getElementById("dlg")
-      .addEventListener("edit", this.On_Click_Edit_Ok);
+    this.shape_dlg.addEventListener("edit", this.On_Click_Edit_Ok);
   }
   
   Set_Code_Gen_Type(code_gen_type)
   {
     this.code_gen_type = code_gen_type;
-    this.getElementById("canvas_code").classList.remove("selected");
-    this.getElementById("path_code").classList.remove("selected");
-    this.getElementById("android_code").classList.remove("selected");
-    this.getElementById(code_gen_type).classList.add("selected");
+    this.canvas_code.classList.remove("selected");
+    this.path_code.classList.remove("selected");
+    this.android_code.classList.remove("selected");
+    this[code_gen_type].classList.add("selected");
   }
 
   Save()
@@ -122,12 +121,8 @@ class Shape_List extends HTMLElement
 
   requestUpdate()
   {
-    this.items_body.innerHTML = this.Render_Items();
-  }
-
-  getElementById(id)
-  {
-    return this.querySelector("#" + id);
+    const items = this.Render_Items();
+    this.items_body.replaceChildren(...items);
   }
 
   // Utils ========================================================================================
@@ -201,32 +196,28 @@ class Shape_List extends HTMLElement
 
   Hide()
   {
-    const panel_elem = this.getElementById("shapes");
     const panel_height = 56;
-    panel_elem.style.height = panel_height + "px";
+    this.panel_elem.style.height = panel_height + "px";
 
-    panel_elem.visible = false;
+    this.panel_elem.visible = false;
   }
 
   Show()
   {
-    const panel_elem = this.getElementById("shapes");
     const panel_height = window.innerHeight * 0.4;
-    panel_elem.style.height = panel_height + "px";
+    this.panel_elem.style.height = panel_height + "px";
 
-    const table_elem = this.getElementById("table");
     const table_height = panel_height - 56;
-    table_elem.style.height = table_height + "px";
+    this.table.style.height = table_height + "px";
 
-    panel_elem.visible = true;
+    this.panel_elem.visible = true;
   }
 
   Toggle_Show()
   {
     let res;
-    const panel_elem = this.getElementById("shapes");
 
-    if (!panel_elem.visible)
+    if (!this.panel_elem.visible)
     {
       this.Show();
       res = true;
@@ -401,18 +392,16 @@ class Shape_List extends HTMLElement
 
   On_Click_Edit(event)
   {
-    const dlg = this.getElementById("dlg");
     const id = event.currentTarget.getAttribute("shape-id");
     const i = this.Get_Shape_Idx(id);
     const shape = this.shapes[i];
 
-    dlg.Show(shape);
+    this.shape_dlg.Show(shape);
   }
 
   On_Click_Edit_Ok()
   {
-    const dlg = this.getElementById("dlg");
-    const shape = dlg.value;
+    const shape = this.shape_dlg.value;
     const i = this.Get_Shape_Idx(shape.id);
     this.shapes[i] = shape;
     this.requestUpdate();
@@ -422,12 +411,9 @@ class Shape_List extends HTMLElement
 
   On_Click_Gen_Code()
   {
-    const canvas_code_gen = this.getElementById("canvas_code_gen");
-    const path_code_gen = this.getElementById("path_code_gen");
-    const android_code_gen = this.getElementById("android_code_gen");
-    canvas_code_gen.Hide();
-    path_code_gen.Hide();
-    android_code_gen.Hide();
+    this.canvas_code_gen.Hide();
+    this.path_code_gen.Hide();
+    this.android_code_gen.Hide();
 
     if (this.code_gen_type == "canvas_code")
     {
@@ -492,7 +478,7 @@ class Shape_List extends HTMLElement
   {
     const json = JSON.stringify(this.shapes, this.JSON_Replacer);
     const href = "data:text/json;charset=utf-8," + encodeURIComponent(json);
-    this.getElementById("download").setAttribute("href", href);
+    this.download.setAttribute("href", href);
   }
 
   On_Click_Undo()
@@ -522,11 +508,11 @@ class Shape_List extends HTMLElement
   {
     if (this.Toggle_Show())
     {
-      this.getElementById("list_btn").classList.add("selected");
+      this.list_btn.classList.add("selected");
     }
     else
     {
-      this.getElementById("list_btn").classList.remove("selected");
+      this.list_btn.classList.remove("selected");
     }
   }
 
@@ -580,7 +566,7 @@ class Shape_List extends HTMLElement
   render()
   {
     const html = `
-      <div id="shapes">
+      <div id="panel_elem">
 
         <div id="btn_bar">
           <button class="button" id="new_moveto" title="Move To"><img src="images/vector-point.svg"></button>
@@ -626,7 +612,7 @@ class Shape_List extends HTMLElement
 
       <div id="summ_elem"></div>
 
-      <shape-dlg id="dlg"></shape-dlg>
+      <shape-dlg id="shape_dlg"></shape-dlg>
 
       <canvas-code id="canvas_code_gen" class="code_gen"></canvas-code>
       <path-code id="path_code_gen" class="code_gen"></path-code>
@@ -662,19 +648,27 @@ class Shape_List extends HTMLElement
 
   Render_Items()
   {
-    let res = "", shape;
+    let res = [], shape;
 
     if (this.shapes && this.shapes.length>0)
     {
       for (let i=0; i<this.shapes.length; i++)
       {
         shape = this.shapes[i];
-        res = `${res}${this.Render_Item(i, shape)}`;
+        res.push(this.Render_Item(i, shape));
       }
     }
     else
     {
-      res = `<tr><td class="msg" colspan=9>No shapes added yet. Get to work!</td></tr>`;
+      const td = document.createElement("td");
+      td.classList.add("msg");
+      td.setAttribute("colspan", 9);
+      td.innerText = "No shapes added yet. Get to work!";
+
+      const tr = document.createElement("tr");
+      tr.append(td);
+
+      res.push(tr);
     }
     return res;
   }
@@ -689,38 +683,51 @@ class Shape_List extends HTMLElement
       this.Render_Summary(shape);
     }
 
-    return `
-      <tr shape-id="${shape.id}">
-        <td nowrap>
-          ${this.Render_Button(shape.id, this.On_Click_Select, "target.svg", true, "Select", btn_class)}
-          ${this.Render_Button(shape.id, this.On_Click_Copy, "content-copy.svg", true, "Copy", "button")}
-          ${this.Render_Button(shape.id, this.On_Click_Edit, "pencil-outline.svg", shape.can_edit, "Edit", "button")}
-          ${this.Render_Button(shape.id, this.On_Click_Delete, "delete-outline.svg", shape.can_delete, "Delete", "button")}
-        </td>
-        <td>${i+1}</td>
-        <td>${shape.name}</td>
-        <td>${shape.Params_Str()}</td>
-      </tr>
-    `;
+    const td1 = document.createElement("td");
+    td1.setAttribute("nowrap", true);
+    td1.classList.add("btns");
+    td1.append(this.Render_Button(shape.id, this.On_Click_Select, "target.svg", true, "Select", btn_class));
+    td1.append(this.Render_Button(shape.id, this.On_Click_Copy, "content-copy.svg", true, "Copy", "button"));
+    td1.append(this.Render_Button(shape.id, this.On_Click_Edit, "pencil-outline.svg", shape.can_edit, "Edit", "button"));
+    td1.append(this.Render_Button(shape.id, this.On_Click_Delete, "delete-outline.svg", shape.can_delete, "Delete", "button"));
+
+    const td2 = document.createElement("td");
+    td2.innerText = i+1;
+
+    const td3 = document.createElement("td");
+    td3.innerText = shape.name;
+
+    const td4 = document.createElement("td");
+    td4.innerText = shape.Params_Str();
+
+    const tr = document.createElement("tr");
+    tr.setAttribute("shape-id", shape.id);
+    tr.append(td1, td2, td3, td4);
+
+    return tr;
   }
 
   Render_Button(id, on_click_fn, image, can_render, title, btn_class)
   {
-    let res;
+    let btn = null;
 
     if (can_render == null || can_render == true)
     {
-      if (!btn_class)
-        btn_class = "";
-      res = `<button shape-id="${id}" @click="${on_click_fn}" title="${title}" class="${btn_class}"><img src="images/${image}"></button>`;
+      btn = document.createElement("img");
+      btn.setAttribute("shape-id", id);
+      btn.setAttribute("title", title);
+      const classes = btn_class.split(" ");
+      classes.forEach( c => btn.classList.add(c) );
+      btn.addEventListener("click", on_click_fn);
+      btn.src = "images/" + image;
     }
-    return res;
+
+    return btn;
   }
 
   Render_Summary(shape)
   {
-    const summ_element = this.getElementById("summ_elem");
-    summ_element.innerText = shape.name + " " + shape.Params_Str();
+    this.summ_elem.innerText = shape.name + " " + shape.Params_Str();
   }
 }
 

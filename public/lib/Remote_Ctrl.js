@@ -195,8 +195,11 @@ class Remote_Ctrl extends LitElement
       function Change(obj)
       {
         const pos = obj.Get_Pos();
-        pos.x += 1;
-        obj.Set_Pos(pos);
+        if (pos)
+        {
+          pos.x += 1;
+          obj.Set_Pos(pos);
+        }
       }
     }
     else if (this.cmd == "scale")

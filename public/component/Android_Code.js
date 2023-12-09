@@ -1,4 +1,3 @@
-import * as pl from "../lib/Coral_Racer.js";
 import { Bezier } from "../lib/bezierjs/bezier.js";
 import Utils from "../lib/Utils.js";
 
@@ -98,7 +97,7 @@ class Android_Code extends HTMLElement
     {
       for (i=0; i<points.length; i++)
       {
-        res = pl.Append_Str(res, this.Round(points[i]) + "f", ", ");
+        res = Utils.appendStr(res, this.Round(points[i]) + "f", ", ");
         if ((i+1)%10 == 0)
         {
           res+= "\n\t\t\t";
@@ -272,11 +271,13 @@ class Android_Code extends HTMLElement
   {
     this.innerHTML = `
       <dialog cid="dlg">
-        <header>
-          <h1>Android Code</h1>
-          <img cid="close_btn" src="images/close.svg">
-        </header>
-        <textarea cid="txt_area"></textarea>
+        <div class="body">
+          <header>
+            <h1>Android Code</h1>
+            <img cid="close_btn" src="images/close.svg">
+          </header>
+          <textarea cid="txt_area"></textarea>
+        </div>
       </dialog>
     `;
     Utils.Set_Id_Shortcuts(this, this, "cid");

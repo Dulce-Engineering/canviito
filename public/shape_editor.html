@@ -42,56 +42,20 @@
         text-align: center;
         font-family: monospace;
       }
-      #btn_bar
-      {
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        padding: 10px;
-        z-index: 1;
-      }
-      button
-      {
-        border-radius: 7px;
-        border: 1px solid #0f0;
-        padding: 5px;
-        cursor: pointer;
-        width: 36px;
-        height: 36px;
-        background-color: #666;
-      }
-      button img
-      {
-        padding: 0;
-        margin: 0;
-        width: 24px;
-        height: 24px;
-        xbackground-color: #666;
-      }
-      button:disabled
-      {
-        opacity: 0.25;
-      }
-      .selected
-      {
-        background-color: #0f0;
-      }
     </style>
     
     <script type="module">
-      import "./lib/shapes/Shape_Editor.js";
+      import "./component/Shape_Editor.js";
       import "./component/Shape_List.js";
 
       window.onload = Main;
       window.onresize = OnResize;
-      let shapes_elem, editor_elem, remote_ctrl;
+      let remote_ctrl;
 
       function Main()
       {
-        shapes_elem = document.getElementById("shapes");
         shapes_elem.on_change_fn = Shapes_OnChange;
         
-        editor_elem = document.getElementById("shape_editor");
         editor_elem.on_change_fn = Editor_OnChange;
         editor_elem.Set_Shapes(shapes_elem.shapes);
 
@@ -134,7 +98,7 @@
   </head>
 
   <body>
-    <shape-editor id="shape_editor"></shape-editor>
-    <shape-list id="shapes"></shape-list>
+    <shape-editor id="editor_elem"></shape-editor>
+    <shape-list id="shapes_elem"></shape-list>
   </body>
 </html>

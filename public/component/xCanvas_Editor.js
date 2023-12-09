@@ -1,7 +1,6 @@
 import {LitElement, html, css} from "./lit-element/lit-element.js";
 import "./Remote_Ctrl.js";
-//import * as pl from "./Coral_Racer.js";
-import * as pl from "./Shapes.js";
+import * as pl from "../lib/Shapes.js";
 
 // Editor Def ======================================================================================
 

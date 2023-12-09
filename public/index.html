@@ -3,24 +3,198 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Coral Racer</title>
+    <title>Canviito</title>
 
+    <link type="text/css" rel="stylesheet" href="./style/main.css" />
+    <link type="text/css" rel="stylesheet" href="./style/Game_Arena.css" />
     <style media="screen">
+      button
+      {
+        margin: 100px 0 0 0;
+      }
     </style>
 
-    <script>
-      window.onload = Main;
+    <script type="module">
+      import "./component/Game_Arena.mjs";
 
+      class Diamond
+      {
+        constructor()
+        {
+          this.sa = Math.random() * Math.PI * 2;
+          const x = Math.sin(this.sa) * 200;
+          const y = Math.cos(this.sa) * 200;
+
+          this.scale = {x: 1, y: 1};
+          this.pos = {x, y};
+          this.a = 0;
+          this.d = {x, y};
+          this.p = {x: (Math.random()-0.5)/5000, y: (Math.random()-0.5)/5000};
+        }
+
+        Get_Angle()
+        {
+          return this.a;
+        }
+
+        Get_Pos()
+        {
+          return this.pos;
+        }
+
+        Get_Scale()
+        {
+          return this.scale;
+        }
+
+        Process(millis, game_arena)
+        {
+          const pi2 = Math.PI * 2;
+          const new_angle = millis / 4000 + this.sa;
+          this.a = new_angle % pi2;
+
+          const rx = game_arena.canvas.width / 2;
+          const ax = millis * this.p.x;
+          this.pos.x = Math.sin(ax) * rx + this.d.x;
+
+          const ry = game_arena.canvas.height / 2;
+          const ay = millis * this.p.y;
+          this.pos.y = Math.sin(ay) * ry + this.d.y;
+        }
+        
+        Render(ctx)
+        {
+          ctx.fillStyle = "#f002";
+          ctx.lineWidth = 1;
+
+          ctx.beginPath();
+          ctx.moveTo(50, 0);
+          ctx.lineTo(0, -60);
+          ctx.lineTo(-50, 0);
+          ctx.lineTo(0, 60);
+          ctx.closePath();
+          ctx.fill();
+        }
+      }
+
+      class Club extends Diamond
+      {
+        constructor()
+        {
+          super();
+          this.scale = {x: 0.25, y: 0.25};
+        }
+
+        Render(ctx)
+        {
+          ctx.fillStyle = "#0002";
+          ctx.lineWidth = 1;
+
+          ctx.beginPath();
+          ctx.moveTo(-128, -78);
+          ctx.arc(-1, -145, 100, 2.6405792667862036, 0.4820787013949051);
+          ctx.arc(80, 13, 100, -1.1026644429192745, 2.508295272290463);
+          ctx.quadraticCurveTo(2, 159, 45, 157);
+          ctx.lineTo(-40, 157);
+          ctx.quadraticCurveTo(4, 153, -9, 75);
+          ctx.arc(-89, 15, 100, 0.6435011087932844, -2.0749622882740497);
+          ctx.closePath();
+          ctx.fill();
+        }
+      }
+
+      class Heart extends Diamond
+      {
+        Render(ctx)
+        {
+          ctx.fillStyle = "#f002";
+          ctx.lineWidth = 1;
+
+          ctx.beginPath();
+          ctx.moveTo(0, 60);
+          ctx.lineTo(-40, 20);
+          ctx.arc(-25, 0, 25, 2.4648557060329326, 0.05123716740341878);
+          ctx.arc(25, 0, 25, 3.1278948802169273, 0.8038009936317608);
+          ctx.closePath();
+          ctx.fill();
+        }
+      }
+
+      class Spade extends Diamond
+      {
+        Render(ctx)
+        {
+          ctx.strokeStyle = "#888";
+          ctx.fillStyle = "#0002";
+          ctx.lineWidth = 1;
+
+          ctx.beginPath();
+          ctx.moveTo(0, -60);
+          ctx.arc(25, 0, 25, -0.8039145654654575, 3.141592653589793);
+          ctx.quadraticCurveTo(1, 46, 18, 57);
+          ctx.lineTo(-22, 57);
+          ctx.quadraticCurveTo(-10, 54, 0, 0);
+          ctx.arc(-25, 0, 25, 0, -2.373736550249747);
+          ctx.closePath();
+          ctx.fill();
+        }
+      }
+
+      Main();
       function Main() 
       {
+        const objs =
+        [
+          new Diamond(),
+          new Diamond(),
+          new Diamond(),
+          new Diamond(),
+          new Diamond(),
+          new Diamond(),
+          new Diamond(),
+          new Diamond(),
+          new Diamond(),
+          new Spade(),
+          new Spade(),
+          new Spade(),
+          new Spade(),
+          new Spade(),
+          new Spade(),
+          new Spade(),
+          new Spade(),
+          new Spade(),
+          new Spade(),
+          new Club(),
+          new Club(),
+          new Club(),
+          new Club(),
+          new Club(),
+          new Club(),
+          new Club(),
+          new Club(),
+          new Club(),
+          new Heart(),
+          new Heart(),
+          new Heart(),
+          new Heart(),
+          new Heart(),
+          new Heart(),
+          new Heart(),
+          new Heart(),
+          new Heart(),
+          new Heart(),
+        ];
+        game.value = objs;
+        game.Start();
       }
+
     </script>
   </head>
 
   <body>
-    <h1>Coral Racer</h1>
-    <ul>
-      <li><a href="shape_editor.html">Shape Editor</a></li>
-    </ul>
+    <game-arena id="game"></game-arena>
+    <h1>Canviito</h1>
+    <h2>A playground for the HTML5 Canvas API</h2>
+    <button><a href="shape_editor.html">Enter</a></button>
   </body>
 </html>

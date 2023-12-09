@@ -1,9 +1,12 @@
-import Canvas_Editor from "../Canvas_Editor.js";
+import Canvas_Editor from "../lib/Canvas_Editor.js";
+import Utils from "../lib/Utils.js";
 
 // Editor Def ======================================================================================
 
 class Shape_Editor extends Canvas_Editor
 {
+  static tname = "shape-editor";
+
   Render(ctx, shapes)
   {
     let shape;
@@ -48,5 +51,6 @@ class Shape_Editor extends Canvas_Editor
   }
 }
 
-customElements.define('shape-editor', Shape_Editor);
+Utils.Register_Element(Shape_Editor);
+
 export default Shape_Editor;

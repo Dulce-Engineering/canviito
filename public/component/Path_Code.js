@@ -100,12 +100,14 @@ class Path_Code extends HTMLElement
   {
     this.innerHTML = `
       <dialog cid="dlg">
-        <header>
-          <h1>Path Code</h1>
-          <img cid="run_btn" src="images/play-outline.svg">
-          <img cid="close_btn" src="images/close.svg">
-        </header>
-        <textarea cid="txt_area"></textarea>
+        <div class="body">
+          <header>
+            <h1>Path Code</h1>
+            <img cid="run_btn" src="images/play-outline.svg">
+            <img cid="close_btn" src="images/close.svg">
+          </header>
+          <textarea cid="txt_area"></textarea>
+        </div>
       </dialog>
     `;
     Utils.Set_Id_Shortcuts(this, this, "cid");
