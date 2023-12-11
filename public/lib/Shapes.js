@@ -8,6 +8,7 @@ export class Shape
     this.class_name = "Shape";
     this.Init_Shape();
     this.pt = this.New_Btn_Path("pt", 0, 0);
+    this.def_stroke_style = "#000";
   }
 
   Init_Shape()
@@ -172,6 +173,7 @@ export class Shape
         this.Render_Btn(ctx, this.btns[i]);
       }
     }
+    ctx.strokeStyle = this.def_stroke_style;
   }
 
   Render_Btn(ctx, path)
@@ -356,7 +358,7 @@ export class Shape_Arc extends Shape
   {
     ctx.save();
     ctx.beginPath();
-    ctx.strokeStyle = "#aaa";
+    ctx.strokeStyle = this.def_stroke_style;
     ctx.setLineDash([5, 5]);
 
     const cp2 = {x: 2*this.pt.x-this.cp.x, y: 2*this.pt.y-this.cp.y};
@@ -476,7 +478,7 @@ export class Shape_Ellipse extends Shape
   {
     ctx.save();
     ctx.beginPath();
-    ctx.strokeStyle = "#aaa";
+    ctx.strokeStyle = this.def_stroke_style;
     ctx.setLineDash([5, 5]);
 
     const cp2 = {x: 2*this.pt.x-this.cp.x, y: 2*this.pt.y-this.cp.y};
@@ -627,7 +629,7 @@ export class Shape_ArcTo extends Shape
   {
     ctx.save();
     ctx.beginPath();
-    ctx.strokeStyle = "#aaa";
+    ctx.strokeStyle = this.def_stroke_style;
     ctx.setLineDash([5, 5]);
 
     ctx.moveTo(this.prev_shape.pt.x, this.prev_shape.pt.y);
@@ -687,7 +689,7 @@ export class Shape_QuadraticCurveTo extends Shape
   {
     ctx.save();
     ctx.beginPath();
-    ctx.strokeStyle = "#aaa";
+    ctx.strokeStyle = this.def_stroke_style;
     ctx.setLineDash([5, 5]);
     ctx.moveTo(this.prev_shape.pt.x, this.prev_shape.pt.y);
     ctx.lineTo(this.cp.x, this.cp.y);
@@ -747,7 +749,7 @@ export class Shape_BezierCurveTo extends Shape
   {
     ctx.save();
     ctx.beginPath();
-    ctx.strokeStyle = "#aaa";
+    ctx.strokeStyle = this.def_stroke_style;
     ctx.setLineDash([5, 5]);
     ctx.moveTo(this.prev_shape.pt.x, this.prev_shape.pt.y);
     ctx.lineTo(this.cp1.x, this.cp1.y);

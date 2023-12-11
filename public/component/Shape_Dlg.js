@@ -43,6 +43,12 @@ class Shape_Dlg extends HTMLElement
         this.shape.cp.x = Number.parseFloat(this.x2_elem.value);
         this.shape.cp.y = Number.parseFloat(this.y2_elem.value);
         break;
+      case "Shape_QuadraticCurveTo":
+        this.shape.pt.x = Number.parseFloat(this.x_elem.value);
+        this.shape.pt.y = Number.parseFloat(this.y_elem.value);
+        this.shape.cp.x = Number.parseFloat(this.x2_elem.value);
+        this.shape.cp.y = Number.parseFloat(this.y2_elem.value);
+        break;
     }
 
     return this.shape;
@@ -103,7 +109,13 @@ class Shape_Dlg extends HTMLElement
         this.Show_Field("x2_elem", shape.cp.x);
         this.Show_Field("y2_elem", shape.cp.y);
         break;
-      }
+      case "Shape_QuadraticCurveTo":
+        this.Show_Field("x_elem", shape.pt.x);
+        this.Show_Field("y_elem", shape.pt.y);
+        this.Show_Field("x2_elem", shape.cp.x);
+        this.Show_Field("y2_elem", shape.cp.y);
+        break;
+    }
 
     this.dlg.showModal();
   }
@@ -134,7 +146,7 @@ class Shape_Dlg extends HTMLElement
     const html = `
       <dialog id="dlg">
         <header>
-          <span class="title" id="type_elem" class="title"></span>
+          <h1 class="title" id="type_elem" class="title"></h1>
         </header>
         <main>
           <label for="x_elem">X</label>

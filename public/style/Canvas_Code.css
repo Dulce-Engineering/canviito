@@ -1,8 +1,9 @@
 
 canvas-code dialog
 {
-  width: 80%;
-  background-color: #888;
+  background-color: var(--yellow);
+  border: none;
+  box-shadow: 0 5px 10px 5px #0004;
 }
 canvas-code .body
 {
@@ -27,26 +28,34 @@ canvas-code header h1
 
 canvas-code header img
 {
-  border-radius: 7px;
-  border: 1px solid #0f0;
-  padding: 5px;
-  cursor: pointer;
   width: 36px;
   height: 36px;
-  background-color: #666;
-  display: inline-block;
   box-sizing: border-box;
   margin: 0;
+
+  display: inline-block;
+  border: none;
+  border-radius: 7px;
+  padding: 8px;
+  cursor: pointer;
+  box-shadow: 0 3px 5px #888;
+  background-color: #fff;
+
+  color: var(--black);
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 800;
 }
 
 canvas-code textarea
 {
-  background-color: #222;
-  border: 1px solid #fff;
-  color: #fff;
-  padding: 5px;
+  background-color: #0002;
+  border: none;
+  color: #000;
+  padding: 8px;
   font-family: monospace;
-  font-size: 11px;
+  font-size: 12px;
   tab-size: 2;
   height: 70vh;
+  width: 70vw;
+  border-radius: 7px;
 }

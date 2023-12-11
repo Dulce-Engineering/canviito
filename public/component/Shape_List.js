@@ -196,36 +196,32 @@ class Shape_List extends HTMLElement
 
   Hide()
   {
-    const panel_height = 56;
-    this.panel_elem.style.height = panel_height + "px";
-
-    this.panel_elem.visible = false;
+    this.table.classList.remove("show-list");
   }
 
   Show()
   {
-    const panel_height = window.innerHeight * 0.4;
-    this.panel_elem.style.height = panel_height + "px";
+    this.table.classList.add("show-list");
+  }
 
-    const table_height = panel_height - 56;
-    this.table.style.height = table_height + "px";
-
-    this.panel_elem.visible = true;
+  List_Is_Visible()
+  {
+    return this.table.classList.contains("show-list");
   }
 
   Toggle_Show()
   {
     let res;
 
-    if (!this.panel_elem.visible)
-    {
-      this.Show();
-      res = true;
-    }
-    else
+    if (this.List_Is_Visible())
     {
       this.Hide();
       res = false;
+    }
+    else
+    {
+      this.Show();
+      res = true;
     }
 
     return res;

@@ -8,6 +8,11 @@
     <link type="text/css" rel="stylesheet" href="./style/main.css" />
     <link type="text/css" rel="stylesheet" href="./style/Game_Arena.css" />
     <style media="screen">
+      h1
+      {
+        background: radial-gradient(#ffff 40%, #fff0 70%);
+      }
+
       button
       {
         margin: 100px 0 0 0;
@@ -130,11 +135,11 @@
 
           ctx.beginPath();
           ctx.moveTo(0, -60);
-          ctx.arc(25, 0, 25, -0.8039145654654575, 3.141592653589793);
-          ctx.quadraticCurveTo(1, 46, 18, 57);
-          ctx.lineTo(-22, 57);
-          ctx.quadraticCurveTo(-10, 54, 0, 0);
-          ctx.arc(-25, 0, 25, 0, -2.373736550249747);
+          ctx.arc(25, 0, 25, -0.8039, 3.1416);
+          ctx.quadraticCurveTo(0, 60, 20, 60);
+          ctx.lineTo(-20, 60);
+          ctx.quadraticCurveTo(0, 60, 0, 0);
+          ctx.arc(-25, 0, 25, 0, -2.3737);
           ctx.closePath();
           ctx.fill();
         }

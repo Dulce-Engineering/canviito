@@ -1,6 +1,7 @@
 import {LitElement, html, css} from "./lit-element/lit-element.js";
 import "./Remote_Ctrl.js";
-import * as pl from "../lib/Shapes.js";
+//import * as pl from "./Coral_Racer.js";
+import * as pl from "./Shapes.js";
 
 // Editor Def ======================================================================================
 
@@ -283,7 +284,7 @@ class Canvas_Editor extends LitElement
   Render_Origin(ctx)
   {
     ctx.save();
-    ctx.strokeStyle = "#555";
+    ctx.strokeStyle = "#888";
     ctx.lineWidth = ctx.line_width;
 
     const p1 = pl.To_Canvas_Pt(ctx, 0, 0);

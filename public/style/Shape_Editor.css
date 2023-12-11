@@ -1,0 +1,16 @@
+shape-editor
+{
+}
+shape-editor #btn_bar
+{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 10px;
+  display: inline-block;
+  z-index: 1;
+}
+shape-editor .selected
+{
+  background-color: #0f08;
+}
