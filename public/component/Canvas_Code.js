@@ -29,31 +29,29 @@ class Canvas_Code extends HTMLElement
   {
     let code;
 
-      code = 
-        "<html>\n" +
-        "\t<head>\n" +
-        "\t\t<title>Plantinator - Sample Page</title>\n" +
-        "\t\t<script type=\"module\">\n" +
-        "\t\t\timport * as pl from \"./lib/Coral_Racer.js\";\n" +
+    code = 
+      "<html>\n" +
+      "\t<head>\n" +
+      "\t\t<title>Preview</title>\n" +
+      "\t\t<script type=\"module\">\n" +
 
-        "\t\t\tconst canvas = document.getElementById(\"canvas\");\n" +
-        "\t\t\tconst ctx = canvas.getContext(\"2d\");\n" +
-        "\t\t\tctx.translate(canvas.width/2, canvas.height/2);\n" +
-        "\t\t\tctx.scale(1, -1);\n" +
-        "\t\t\tctx.strokeStyle=\"#000\";\n" +
-        "\t\t\tctx.lineWidth = 1;\n\n" +
-    
-        this.Gen_Cmds(shapes) +
+      "\t\t\tconst canvas = document.getElementById(\"canvas\");\n" +
+      "\t\t\tconst ctx = canvas.getContext(\"2d\");\n" +
+      "\t\t\tctx.translate(canvas.width/2, canvas.height/2);\n" +
+      "\t\t\tctx.strokeStyle=\"#000\";\n" +
+      "\t\t\tctx.lineWidth = 2;\n\n" +
+  
+      this.Gen_Cmds(shapes) +
 
-        "\t\t</script>\n" +
-        "\t</head>\n" +
-        "\t<body>\n" +
-        "\t\t<canvas id=\"canvas\" width=\"1000\" height=\"1000\" style=\"width:100%;height:100%;\">\n" +
-        "\t</body>\n" +
-        "</html>\n";
+      "\t\t</script>\n" +
+      "\t</head>\n" +
+      "\t<body>\n" +
+      "\t\t<canvas id=\"canvas\" width=\"1000\" height=\"1000\" style=\"width:100%;height:100%;\">\n" +
+      "\t</body>\n" +
+      "</html>\n";
 
-      this.txt_area.value = code;
-    }
+    this.txt_area.value = code;
+  }
 
   Gen_Cmds(shapes)
   {
@@ -76,7 +74,7 @@ class Canvas_Code extends HTMLElement
   On_Click_Run()
   {
     const js = this.txt_area.value;
-    const page = window.open("", "plantinator", "width=500,height=500");
+    const page = window.open("", "preview", "width=500,height=500");
     page.document.open();
     page.document.write(js);
     page.document.close();

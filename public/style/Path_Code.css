@@ -3,6 +3,7 @@ path-code dialog
   background-color: var(--yellow);
   border: none;
   box-shadow: 0 5px 10px 5px #0004;
+  border: 2px outset #fff5;
 }
 path-code .body
 {
@@ -57,4 +58,8 @@ path-code textarea
   height: 70vh;
   width: 70vw;
   border-radius: 7px;
+}
+path-code textarea:focus-visible
+{
+  outline: 1px solid #0005;
 }

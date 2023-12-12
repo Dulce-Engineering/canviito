@@ -41,16 +41,14 @@ class Path_Code extends HTMLElement
     code = 
       "<html>\n" +
       "\t<head>\n" +
-      "\t\t<title>Plantinator - Sample Page</title>\n" +
+      "\t\t<title>Preview</title>\n" +
       "\t\t<script type=\"module\">\n" +
-      "\t\t\timport * as pl from \"./lib/Coral_Racer.js\";\n" +
 
       "\t\t\tconst canvas = document.getElementById(\"canvas\");\n" +
       "\t\t\tconst ctx = canvas.getContext(\"2d\");\n" +
       "\t\t\tctx.translate(canvas.width/2, canvas.height/2);\n" +
-      "\t\t\tctx.scale(1, -1);\n" +
       "\t\t\tctx.strokeStyle=\"#000\";\n" +
-      "\t\t\tctx.lineWidth = 1;\n\n" +
+      "\t\t\tctx.lineWidth = 2;\n\n" +
   
       this.Gen_Cmds(shapes) +
       "\t\t\tctx.stroke(p);\n" +
@@ -85,7 +83,7 @@ class Path_Code extends HTMLElement
   On_Click_Run()
   {
     const js = this.txt_area.value;
-    const page = window.open("", "plantinator", "width=500,height=500");
+    const page = window.open("", "preview", "width=500,height=500");
     page.document.open();
     page.document.write(js);
     page.document.close();

@@ -4,6 +4,7 @@ canvas-code dialog
   background-color: var(--yellow);
   border: none;
   box-shadow: 0 5px 10px 5px #0004;
+  border: 2px outset #fff5;
 }
 canvas-code .body
 {
@@ -58,4 +59,8 @@ canvas-code textarea
   height: 70vh;
   width: 70vw;
   border-radius: 7px;
+}
+canvas-code textarea:focus-visible
+{
+  outline: 1px solid #0005;
 }

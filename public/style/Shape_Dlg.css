@@ -3,6 +3,7 @@ shape-dlg dialog
   background-color: var(--green);
   border: none;
   box-shadow: 0 5px 10px 5px #0004;
+  border: 2px outset #fff5;
 }
 
 shape-dlg header
@@ -42,7 +43,7 @@ shape-dlg input
 }
 shape-dlg input:focus-visible
 {
-  outline: none;
+  outline: 1px solid #0005;
 }
 shape-dlg select
 {

@@ -12,6 +12,7 @@ shape-list #table
   padding: 30px 30px 30px 30px;
   max-height: 40vh;
   box-shadow: 0 0 10px 5px #0004;
+  border-top: 2px outset #fff5;
 }
 shape-list #table.show-list
 {
@@ -67,7 +68,6 @@ shape-list #summ_elem
   right: 0px;
   top: 46px;
   padding: 5px 10px 10px 10px;
-  font-weight: bold;
 }
 shape-list #btn_bar
 {
